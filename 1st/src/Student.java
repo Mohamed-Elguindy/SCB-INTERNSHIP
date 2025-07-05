@@ -1,21 +1,17 @@
-public class Student {
-    private int id;
-    private String name;
+public class Student extends Person {
     private int grade;
-    public Student(int id, String name, int grade) {
-        this.id = id;
-        this.name = name;
+
+    public Student(int id, String name, int age, int grade) {
+        super(id, name, age);
         this.grade = grade;
     }
-    public int getId() {return id;}
-    public String getName() {return name;}
-    public int getGrade() {return grade;}
-    public void setId(int id) {this.id = id;}
-    public void setName(String name) {this.name = name;}
-    public void setGrade(int grade) {this.grade = grade;}
-    public void Print_Student() {
-        System.out.println("Student id : " + id);
-        System.out.println("Student name : " + name);
-        System.out.println("Student grade : " + grade);
+
+    public int getGrade() {
+        return grade;
+    }
+
+    public void Print() {
+        super.Print();
+        System.out.println("Grade : " + grade);
     }
 }

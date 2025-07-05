@@ -1,56 +1,31 @@
-import java.util.Scanner;
-
 public class Main {
     public static void main(String[] args) {
-        Mange manager = new Mange();
-        Scanner scanner = new Scanner(System.in);
+        StudentManager studentManager = new StudentManager();
 
-        while (true) {
-            System.out.println("\n===== Student Management System =====");
-            System.out.println("1. Add Student");
-            System.out.println("2. Display All Students");
-            System.out.println("3. Show Top 5 Students");
-            System.out.println("4. Exit");
-            System.out.print("Enter your choice: ");
+        studentManager.addStudent(1, "Alice", 18, 95);
+        studentManager.addStudent(2, "Bob", 17, 89);
+        studentManager.addStudent(3, "Charlie", 19, 76);
+        studentManager.addStudent(4, "David", 18, 88);
+        studentManager.addStudent(5, "Eve", 20, 91);
+        studentManager.addStudent(6, "Frank", 17, 85);
 
-            int choice = scanner.nextInt();
+        System.out.println("=== All Students ===");
+        studentManager.displayAllStudents();
 
-            switch (choice) {
-                case 1:
-                    try {
-                        System.out.print("Enter ID: ");
-                        int id = scanner.nextInt();
-                        scanner.nextLine();
+        System.out.println("\n=== Top 5 Students ===");
+        studentManager.printTop5Students();
 
-                        System.out.print("Enter Name: ");
-                        String name = scanner.nextLine();
+        StaffManager staffManager = new StaffManager();
 
-                        System.out.print("Enter Grade: ");
-                        int grade = scanner.nextInt();
-                        scanner.nextLine();
+        staffManager.addStaff(101, "Dr. Smith", 45, "Professor", 12000);
+        staffManager.addStaff(102, "Ms. Johnson", 38, "Admin", 8500);
+        staffManager.addStaff(103, "Mr. Clark", 50, "Dean", 15000);
+        staffManager.addStaff(104, "Mrs. Lee", 42, "Lecturer", 10000);
 
-                        manager.addStudents(id, name, grade);
-                    } catch (Exception e) {
-                        System.out.println("Invalid input.");
-                        scanner.nextLine();
-                    }
-                    break;
+        System.out.println("\n=== All Staff ===");
+        staffManager.displayAllStaff();
 
-                case 2:
-                    manager.displayAllStudents();
-                    break;
-
-                case 3:
-                    manager.printTop5Students();
-                    break;
-
-                case 4:
-                    System.out.println("Exiting program");
-                    return;
-
-                default:
-                    System.out.println("Invalid choice.");
-            }
-        }
+        System.out.println("\n=== Top Salaries (Staff) ===");
+        staffManager.printTopSalaries();
     }
 }
